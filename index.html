@@ -9,13 +9,75 @@
 
 </head>
 <body>
-  <div id="tester" style="width:600px;height:250px;"></div>
+  <div id="tester" style="width:400px;height:300px;"></div>
   <script>
-    TESTER = document.getElementById('tester');
-    Plotly.newPlot( TESTER, [{
-    x: [1, 2, 3, 4, 5],
-    y: [1, 2, 4, 8, 16] }], {
-    margin: { t: 0 } } );
+
+  let n=50;
+  let N=100;
+  let f = 4;
+  let T = 1/f;
+  let Td = T/n;
+  let Fd = 1/Td;
+  let fi = 0 * Math.PI;
+  Xm = 0.5;
+
+  let t =[];
+  for (let i = 0; i <= T*N/n; i += Td ) {
+    t.push(i);
+    
+  }
+
+  let x = [];
+  for (let i = 0; i <=T*N/n; i = i + Td ) {
+    x.push(Xm * Math.sin((2 * Math.PI * f * i + fi)));
+  }
+  console.log(x);
+  var lineDiv = document.getElementById('tester');
+ 
+  var traceA = {
+    x: t,
+    y: x,
+    type: 'scatter'
+  };
+      
+  var data = [traceA];
+      
+  var layout = {
+    title:'A Line Chart in Plotly'
+  };
+      
+  Plotly.newPlot( lineDiv, data, layout );
+
   </script>
 </body>
 </html>
+
+
+
+<!-- 
+{
+  type: 'line',
+  data: {
+    labels: ["China", "India", "United States", "Indonesia", "Brazil", "Pakistan", "Nigeria", "Bangladesh", "Russia", "Japan"],
+    datasets: [{
+      label: 'Population',
+      data: [1379302771, 1281935911, 326625791, 260580739, 207353391, 204924861, 190632261, 157826578, 142257519, 126451398],
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.6)',
+        'rgba(54, 162, 235, 0.6)',
+        'rgba(255, 206, 86, 0.6)',
+        'rgba(75, 192, 192, 0.6)',
+        'rgba(153, 102, 255, 0.6)',
+        'rgba(255, 159, 64, 0.6)',
+        'rgba(255, 99, 132, 0.6)',
+        'rgba(54, 162, 235, 0.6)',
+        'rgba(255, 206, 86, 0.6)',
+        'rgba(75, 192, 192, 0.6)',
+        'rgba(153, 102, 255, 0.6)',
+        'rgba(255, 159, 64, 0.6)',
+        'rgba(255, 99, 132, 0.6)',
+
+      ]
+    }]
+  }
+} -->
