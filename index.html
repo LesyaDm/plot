@@ -9,45 +9,131 @@
 
 </head>
 <body>
-  <div id="tester" style="width:400px;height:300px;"></div>
+  <div id="ex1" style="width:500px;height:400px;"></div>
+  <div id="ex2" style="width:500px;height:400px;"></div>
+  <div id="ex3" style="width:500px;height:400px;"></div>
+  <div id="ex4" style="width:500px;height:400px;"></div>
+  <div id="ex5" style="width:500px;height:400px;"></div>
+  <div id="ex6" style="width:500px;height:400px;"></div>
+  <div id="ex7" style="width:500px;height:400px;"></div>
+  <div id="ex8" style="width:500px;height:400px;"></div>
   <script>
+  'use struct';
+  function randn(n) {
+    return Math.random() * 2 - 1
+    
+  }
 
-  let n=50;
-  let N=100;
+
+  let n = 100;
+  let n4 = 100;
+  let N = 500;
   let f = 4;
-  let T = 1/f;
-  let Td = T/n;
-  let Fd = 1/Td;
-  let fi = 0 * Math.PI;
-  Xm = 0.5;
+  let T = 1 / f;
+  let Td = T / n;
+  let Fd = 1 / Td;
+  let Xm = 0.5;
+  let fi2 = Math.PI / 4; 
+  let f2 = 3 * f;
+  let Xm2 = 1 / 2 * Xm;
+  let Xm4 = 1 / 8 * Xm;
 
   let t =[];
-  for (let i = 0; i <= T*N/n; i += Td ) {
+  for (let i = 0; i <= T * N / n; i += Td ) {
     t.push(i);
     
   }
 
   let x = [];
-  for (let i = 0; i <=T*N/n; i = i + Td ) {
-    x.push(Xm * Math.sin((2 * Math.PI * f * i + fi)));
+  for (let i = 0; i <= T * N / n; i += Td ) {
+    x.push(Xm * Math.sin((2 * Math.PI * f * i)));
   }
-  console.log(x);
-  var lineDiv = document.getElementById('tester');
- 
-  var traceA = {
+
+  let x2 = [];
+  for (let i = 0; i <= T * N / n; i += Td ) {
+    x2.push(Xm2 * Math.sin((2 * Math.PI * f2 * i + fi2)));
+  }
+
+  let x3 = [];
+  for (let i = 0; i <= x.length; i++ ) {
+    x3.push(x[i] + x2[i]);
+  }
+
+  let x4 = new Array(n4);
+  for (let i = 0; i < n4; i++ ) {
+      x4[i] = Xm4 * randn(n4);
+  }
+
+
+  let traceA = {
     x: t,
     y: x,
-    type: 'scatter'
+    type: 'scatter',
+    marker: {        
+      color: 'rgba(255, 99, 132, 0.6)' 
+    },
+    name: 'x1(t)',
+  }; 
+  let data = [traceA]; 
+  let layout1 = {
+    title:'1 задание'
   };
       
-  var data = [traceA];
-      
-  var layout = {
-    title:'A Line Chart in Plotly'
-  };
-      
-  Plotly.newPlot( lineDiv, data, layout );
+  let traceA2 = {
+    x: t,
+    y: x2,
+    type: 'scatter',
+    marker: {        
+      color: 'rgba(54, 162, 235, 0.6)'
+    },
+    name: 'x2(t)',
+  }; 
+  let traceA3 = {
+    x: t,
+    y: x3,
+    type: 'scatter',
+    marker: {        
+      color: 'rgba(255, 99, 132, 0.6)' 
+    },
+    name: 'x3(t)',
+  }; 
+  let traceA4 = {
+    x: t,
+    y: x4,
+    type: 'scatter',
+    marker: {        
+      color: 'rgba(255, 99, 132, 0.6)' 
+    },
+    name: 'x4(t)',
+  }; 
 
+
+  let data2 = [traceA, traceA2]; 
+  let data3 = [traceA3]; 
+  let data4 = [traceA4]; 
+
+
+  let layout2 = {
+    title:'2 задание',
+  };
+  let layout3 = {
+    title:'3 задание',
+  };
+  let layout4 = {
+    title:'4 задание',
+  };
+    
+  let lineDiv1 = document.getElementById('ex1');
+  let lineDiv2 = document.getElementById('ex2');
+  let lineDiv3 = document.getElementById('ex3');
+  let lineDiv4 = document.getElementById('ex4');
+  let lineDiv5 = document.getElementById('ex5');
+  let lineDiv6 = document.getElementById('ex6');
+
+  Plotly.newPlot( lineDiv1, data, layout1 );
+  Plotly.newPlot( lineDiv2, data2, layout2 );
+  Plotly.newPlot( lineDiv3, data3, layout3 );
+  Plotly.newPlot( lineDiv4, data4, layout4 );
   </script>
 </body>
 </html>
@@ -55,29 +141,10 @@
 
 
 <!-- 
-{
-  type: 'line',
-  data: {
-    labels: ["China", "India", "United States", "Indonesia", "Brazil", "Pakistan", "Nigeria", "Bangladesh", "Russia", "Japan"],
-    datasets: [{
-      label: 'Population',
-      data: [1379302771, 1281935911, 326625791, 260580739, 207353391, 204924861, 190632261, 157826578, 142257519, 126451398],
-      backgroundColor: [
         'rgba(255, 99, 132, 0.6)',
         'rgba(54, 162, 235, 0.6)',
         'rgba(255, 206, 86, 0.6)',
         'rgba(75, 192, 192, 0.6)',
         'rgba(153, 102, 255, 0.6)',
         'rgba(255, 159, 64, 0.6)',
-        'rgba(255, 99, 132, 0.6)',
-        'rgba(54, 162, 235, 0.6)',
-        'rgba(255, 206, 86, 0.6)',
-        'rgba(75, 192, 192, 0.6)',
-        'rgba(153, 102, 255, 0.6)',
-        'rgba(255, 159, 64, 0.6)',
-        'rgba(255, 99, 132, 0.6)',
-
-      ]
-    }]
-  }
-} -->
+-->
