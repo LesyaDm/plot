@@ -14,19 +14,17 @@
   <div id="ex3" style="width:500px;height:400px;"></div>
   <div id="ex4" style="width:500px;height:400px;"></div>
   <div id="ex5" style="width:500px;height:400px;"></div>
-  <div id="ex6" style="width:500px;height:400px;"></div>
+  <div id="result6"></div>
   <div id="ex7" style="width:500px;height:400px;"></div>
   <div id="ex8" style="width:500px;height:400px;"></div>
   <script>
   'use struct';
-  function randn(n) {
-    return Math.random() * 2 - 1
-    
+  function randn() {
+    return Math.sqrt(-2 * Math.log(Math.random()))*Math.cos((2*Math.PI) * Math.random());
   }
 
 
   let n = 100;
-  let n4 = 100;
   let N = 500;
   let f = 4;
   let T = 1 / f;
@@ -59,10 +57,50 @@
     x3.push(x[i] + x2[i]);
   }
 
-  let x4 = new Array(n4);
-  for (let i = 0; i < n4; i++ ) {
-      x4[i] = Xm4 * randn(n4);
+  let x4 = new Array(n);
+  for (let i = 0; i < n; i++ ) {
+      x4[i] = Xm4 * randn();
   }
+
+  let x5 = new Array(n);
+  for (let i = 0; i < n; i++ ) {
+      x5[i] = (x[i] + x4[i]);
+  }
+
+  let x6 = new Array(n);
+  for (let i = 0; i < n; i++ ) {
+      x6[i] = (x3[i] + x4[i]);
+  }
+
+  let M1 = 0, M2 = 0, M3 = 0, M4 = 0, M5 = 0, M6 = 0;
+  for (let i = 0; i < x.length; i++ ) {
+    M1 = M1 + x[i];
+    M2 = M2 + x2[i];
+    M3 = M3 + x3[i];
+  }
+  for (let i = 0; i < n; i++ ) {
+    M4 = M4 + x4[i];
+    M5 = M5 + x5[i];
+    M6 = M6 + x6[i];
+  }
+
+  let D1 = 0, D2 = 0, D3 = 0, D4 = 0, D5 = 0, D6 = 0;
+  for (let i = 0; i < x.length; i++ ) {
+    D1 = D1 + x[i]**2;
+    D2 = D2 + x2[i]**2;
+    D3 = D3 + x3[i]**2;
+  }
+  for (let i = 0; i < n; i++ ) {
+    D4 = D4 + x4[i]**2;
+    D5 = D5 + x5[i]**2;
+    D6 = D6 + x6[i]**2;
+  }
+
+  resM = 'Математическое ожидание сигнала: <br>Сигнал 1: ' + M1 + '<br>Сигнал 2: ' + M2 + '<br>Сигнал 3: ' + M3 + '<br>Сигнал 4: ' + M4 + '<br>Сигнал 5: ' + M5 + '<br>Сигнал 6: ' + M6;
+
+  resD = '<br>Дисперсия сигнала: <br>Сигнал 1: ' + (D1 - M1**2) + '<br>Сигнал 2: ' + (D2 - M2**2) + '<br>Сигнал 3: ' + (D3 - M3**2) + '<br>Сигнал 4: ' + (D4 - M4**2) + '<br>Сигнал 5: ' + (D5 - M5**2) + '<br>Сигнал 6: ' + (D6 - M6**2);
+  
+  document.getElementById("result6").innerHTML = resM + resD;
 
 
   let traceA = {
@@ -106,12 +144,30 @@
     },
     name: 'x4(t)',
   }; 
+  let traceA5 = {
+    x: t,
+    y: x5,
+    type: 'scatter',
+    marker: {        
+      color: 'rgba(255, 99, 132, 0.6)' 
+    },
+    name: 'x5(t)',
+  }; 
+  let traceA6 = {
+    x: t,
+    y: x6,
+    type: 'scatter',
+    marker: {        
+      color: 'rgba(54, 162, 235, 0.6)'
+    },
+    name: 'x6(t)',
+  }; 
 
 
   let data2 = [traceA, traceA2]; 
   let data3 = [traceA3]; 
   let data4 = [traceA4]; 
-
+  let data5 = [traceA5, traceA6];
 
   let layout2 = {
     title:'2 задание',
@@ -121,6 +177,9 @@
   };
   let layout4 = {
     title:'4 задание',
+  };
+  let layout5 = {
+    title:'5 задание',
   };
     
   let lineDiv1 = document.getElementById('ex1');
@@ -134,6 +193,7 @@
   Plotly.newPlot( lineDiv2, data2, layout2 );
   Plotly.newPlot( lineDiv3, data3, layout3 );
   Plotly.newPlot( lineDiv4, data4, layout4 );
+  Plotly.newPlot( lineDiv5, data5, layout5 );
   </script>
 </body>
 </html>
