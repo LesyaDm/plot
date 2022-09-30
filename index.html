@@ -14,9 +14,36 @@
   <div id="ex3" style="width:500px;height:400px;"></div>
   <div id="ex4" style="width:500px;height:400px;"></div>
   <div id="ex5" style="width:500px;height:400px;"></div>
+  <div style="font-size:20px;">6 Задание:</div>
   <div id="result6"></div>
-  <div id="ex7" style="width:500px;height:400px;"></div>
-  <div id="ex8" style="width:500px;height:400px;"></div>
+  <div style="font-size:20px; margin: 40px 0 0 160px;">7 Задание:</div>
+  <div id="ex71" style="width:500px;height:400px;"></div>
+  <div id="ex72" style="width:500px;height:400px;"></div>
+  <div id="ex73" style="width:500px;height:400px;"></div>
+  <div id="ex74" style="width:500px;height:400px;"></div>
+  <div id="ex75" style="width:500px;height:400px;"></div>
+  <div id="ex76" style="width:500px;height:400px;"></div>
+  <div id="ex77" style="width:500px;height:400px;"></div>
+  <div id="ex78" style="width:500px;height:400px;"></div>
+  <div id="ex79" style="width:500px;height:400px;"></div>
+  <div id="ex710" style="width:500px;height:400px;"></div>
+  <div id="ex711" style="width:500px;height:400px;"></div>
+  <div id="ex712" style="width:500px;height:400px;"></div>
+  <div id="ex713" style="width:500px;height:400px;"></div>
+  <div id="ex714" style="width:500px;height:400px;"></div>
+  <div id="ex715" style="width:500px;height:400px;"></div>
+  <div id="ex716" style="width:500px;height:400px;"></div>
+  <div id="ex717" style="width:500px;height:400px;"></div>
+  <div id="ex718" style="width:500px;height:400px;"></div>
+  <div style="font-size:20px; margin: 40px 0 0 160px;">8 Задание:</div>
+  <div id="ex8x5" style="width:500px;height:400px;"></div>
+  <div id="ex81" style="width:500px;height:400px;"></div>
+  <div id="ex8x10" style="width:500px;height:400px;"></div>
+  <div id="ex82" style="width:500px;height:400px;"></div>
+  <div id="ex8x20" style="width:500px;height:400px;"></div>
+  <div id="ex83" style="width:500px;height:400px;"></div>
+  <div id="ex8x50" style="width:500px;height:400px;"></div>
+  <div id="ex84" style="width:500px;height:400px;"></div>
   <script>
   'use struct';
   function randn() {
@@ -35,11 +62,11 @@
   let f2 = 3 * f;
   let Xm2 = 1 / 2 * Xm;
   let Xm4 = 1 / 8 * Xm;
+  let Nf = 1024;
 
   let t =[];
   for (let i = 0; i <= T * N / n; i += Td ) {
     t.push(i);
-    
   }
 
   let x = [];
@@ -102,6 +129,138 @@
   
   document.getElementById("result6").innerHTML = resM + resD;
 
+  let f1 =[];
+  for (let i = 0.0001; i <= f/2; i += f/(2*Nf)) {
+    f1.push(i);
+  }
+  let Re1 = new Array(Nf);
+  let Im1 = new Array(Nf);
+  let A1 = new Array(Nf);
+  let F1 = new Array(Nf);
+  let P1 = new Array(Nf);
+  let Re2 = new Array(Nf);
+  let Im2 = new Array(Nf);
+  let A2 = new Array(Nf);
+  let F2 = new Array(Nf);
+  let P2 = new Array(Nf);
+  let Re3 = new Array(Nf);
+  let Im3 = new Array(Nf);
+  let A3 = new Array(Nf);
+  let F3 = new Array(Nf);
+  let P3 = new Array(Nf);
+  let Re4 = new Array(Nf);
+  let Im4 = new Array(Nf);
+  let A4 = new Array(Nf);
+  let F4 = new Array(Nf);
+  let P4 = new Array(Nf);
+  let Re5 = new Array(Nf);
+  let Im5 = new Array(Nf);
+  let A5 = new Array(Nf);
+  let F5 = new Array(Nf);
+  let P5 = new Array(Nf);
+  let Re6 = new Array(Nf);
+  let Im6 = new Array(Nf);
+  let A6 = new Array(Nf);
+  let F6 = new Array(Nf);
+  let P6 = new Array(Nf);
+  for (let i = 0; i < Nf; i++ ) {
+    Re1[i] = 0;
+    Im1[i] = 0;
+    Re2[i] = 0;
+    Im2[i] = 0;
+    Re3[i] = 0;
+    Im3[i] = 0;
+    Re4[i] = 0;
+    Im4[i] = 0;
+    Re5[i] = 0;
+    Im5[i] = 0;
+    Re6[i] = 0;
+    Im6[i] = 0;
+    for (let j = 0; j < 100; j++){
+      Re1[i] = Re1[i] + x[j] * Math.cos(Math.PI * (j) * (i) / Nf);
+      Im1[i] = Im1[i] + x[j] * Math.sin(Math.PI * (j) * (i) / Nf);
+      Re2[i] = Re2[i] + x2[j] * Math.cos(Math.PI * (j) * (i) / Nf);
+      Im2[i] = Im2[i] + x2[j] * Math.sin(Math.PI * (j) * (i) / Nf);
+      Re3[i] = Re3[i] + x3[j] * Math.cos(Math.PI * (j) * (i) / Nf);
+      Im3[i] = Im3[i] + x3[j] * Math.sin(Math.PI * (j) * (i) / Nf);
+    }
+    for (let j = 0; j < 100; j++){
+      Re4[i] = Re4[i] + x4[j] * Math.cos(Math.PI * (j) * (i) / Nf);
+      Im4[i] = Im4[i] + x4[j] * Math.sin(Math.PI * (j) * (i) / Nf);
+      Re5[i] = Re5[i] + x5[j] * Math.cos(Math.PI * (j) * (i) / Nf);
+      Im5[i] = Im5[i] + x5[j] * Math.sin(Math.PI * (j) * (i) / Nf);
+      Re6[i] = Re6[i] + x6[j] * Math.cos(Math.PI * (j) * (i) / Nf);
+      Im6[i] = Im6[i] + x6[j] * Math.sin(Math.PI * (j) * (i) / Nf);
+    }
+
+    A1[i] = Math.sqrt(Re1[i]**2 + Im1[i]**2);
+    F1[i] = Math.atan(Im1[i]/Re1[i]);
+    P1[i] = Re1[i]**2 + Im1[i]**2;
+    A2[i] = Math.sqrt(Re2[i]**2 + Im2[i]**2);
+    F2[i] = Math.atan(Im2[i]/Re2[i]);
+    P2[i] = Re2[i]**2 + Im2[i]**2;
+    A3[i] = Math.sqrt(Re3[i]**2 + Im3[i]**2);
+    F3[i] = Math.atan(Im3[i]/Re3[i]);
+    P3[i] = Re3[i]**2 + Im3[i]**2;
+    A4[i] = Math.sqrt(Re4[i]**2 + Im4[i]**2);
+    F4[i] = Math.atan(Im4[i]/Re4[i]);
+    P4[i] = Re4[i]**2 + Im4[i]**2;
+    A5[i] = Math.sqrt(Re5[i]**2 + Im5[i]**2);
+    F5[i] = Math.atan(Im5[i]/Re5[i]);
+    P5[i] = Re5[i]**2 + Im5[i]**2;
+    A6[i] = Math.sqrt(Re6[i]**2 + Im6[i]**2);
+    F6[i] = Math.atan(Im6[i]/Re6[i]);
+    P6[i] = Re6[i]**2 + Im6[i]**2;
+  }
+
+  let xt5 = [];
+  for (let i = 0; i <= T * N / n; i += Td ) {
+    xt5.push(Xm * Math.sin((2 * Math.PI * 5 * i)));
+  }
+  let xt10 = [];
+  for (let i = 0; i <= T * N / n; i += Td ) {
+    xt10.push(Xm * Math.sin((2 * Math.PI * 10 * i)));
+  }
+  let xt20 = [];
+  for (let i = 0; i <= T * N / n; i += Td ) {
+    xt20.push(Xm * Math.sin((2 * Math.PI * 20 * i)));
+  }
+  let xt50 = [];
+  for (let i = 0; i <= T * N / n; i += Td ) {
+    xt50.push(Xm * Math.sin((2 * Math.PI * 50 * i)));
+  }
+
+
+  let Ret5 = new Array(Nf), Imt5 = new Array(Nf);
+  let Ret10 = new Array(Nf), Imt10 = new Array(Nf);
+  let Ret20 = new Array(Nf), Imt20 = new Array(Nf);
+  let Ret50 = new Array(Nf), Imt50 = new Array(Nf);
+  let Pt5 = new Array(Nf), Pt10= new Array(Nf), Pt20 = new Array(Nf), Pt50 = new Array(Nf);
+
+  for (let i = 0; i < Nf; i++ ) {
+    Ret5[i] = 0;
+    Imt5[i] = 0;
+    Ret10[i] = 0;
+    Imt10[i] = 0;
+    Ret20[i] = 0;
+    Imt20[i] = 0;
+    Ret50[i] = 0;
+    Imt50[i] = 0;
+    for (let j = 0; j < 100; j++){
+      Ret5[i] = Ret5[i] + xt5[j] * Math.cos(Math.PI * (j) * (i) / Nf);
+      Imt5[i] = Imt5[i] + xt5[j] * Math.sin(Math.PI * (j) * (i) / Nf);
+      Ret10[i] = Ret10[i] + xt10[j] * Math.cos(Math.PI * (j) * (i) / Nf);
+      Imt10[i] = Imt10[i] + xt10[j] * Math.sin(Math.PI * (j) * (i) / Nf);
+      Ret20[i] = Ret20[i] + xt20[j] * Math.cos(Math.PI * (j) * (i) / Nf);
+      Imt20[i] = Imt20[i] + xt20[j] * Math.sin(Math.PI * (j) * (i) / Nf);
+      Ret50[i] = Ret50[i] + xt50[j] * Math.cos(Math.PI * (j) * (i) / Nf);
+      Imt50[i] = Imt50[i] + xt50[j] * Math.sin(Math.PI * (j) * (i) / Nf);
+    }
+    Pt5[i] = Ret5[i]**2 + Imt5[i]**2;
+    Pt10[i] = Ret10[i]**2 + Imt10[i]**2;
+    Pt20[i] = Ret20[i]**2 + Imt20[i]**2;
+    Pt50[i] = Ret50[i]**2 + Imt50[i]**2;
+  }
 
   let traceA = {
     x: t,
@@ -162,12 +321,292 @@
     },
     name: 'x6(t)',
   }; 
+  let traceA71 = {
+    x: f1,
+    y: A1,
+    type: 'scatter',
+    marker: {        
+      color: 'rgba(54, 162, 235, 0.6)'
+    },
+    name: 'A1(f)',
+  }; 
+  let traceA72 = {
+    x: f1,
+    y: F1,
+    type: 'scatter',
+    marker: {        
+      color: 'rgba(54, 162, 235, 0.6)'
+    },
+    name: 'F1(f)',
+  }; 
+  let traceA73 = {
+    x: f1,
+    y: P1,
+    type: 'scatter',
+    marker: {        
+      color: 'rgba(54, 162, 235, 0.6)'
+    },
+    name: 'P1(f)',
+  }; 
+  let traceA74 = {
+    x: f1,
+    y: A2,
+    type: 'scatter',
+    marker: {        
+      color: 'rgba(54, 162, 235, 0.6)'
+    },
+    name: 'A2(f)',
+  }; 
+  let traceA75 = {
+    x: f1,
+    y: F2,
+    type: 'scatter',
+    marker: {        
+      color: 'rgba(54, 162, 235, 0.6)'
+    },
+    name: 'F2(f)',
+  }; 
+  let traceA76 = {
+    x: f1,
+    y: P2,
+    type: 'scatter',
+    marker: {        
+      color: 'rgba(54, 162, 235, 0.6)'
+    },
+    name: 'P2(f)',
+  }; 
+  let traceA77 = {
+    x: f1,
+    y: A3,
+    type: 'scatter',
+    marker: {        
+      color: 'rgba(54, 162, 235, 0.6)'
+    },
+    name: 'A3(f)',
+  }; 
+  let traceA78 = {
+    x: f1,
+    y: F3,
+    type: 'scatter',
+    marker: {        
+      color: 'rgba(54, 162, 235, 0.6)'
+    },
+    name: 'F3(f)',
+  }; 
+  let traceA79 = {
+    x: f1,
+    y: P3,
+    type: 'scatter',
+    marker: {        
+      color: 'rgba(54, 162, 235, 0.6)'
+    },
+    name: 'P3(f)',
+  }; 
+  let traceA710 = {
+    x: f1,
+    y: A4,
+    type: 'scatter',
+    marker: {        
+      color: 'rgba(54, 162, 235, 0.6)'
+    },
+    name: 'A4(f)',
+  }; 
+  let traceA711 = {
+    x: f1,
+    y: F4,
+    type: 'scatter',
+    marker: {        
+      color: 'rgba(54, 162, 235, 0.6)'
+    },
+    name: 'F4(f)',
+  }; 
+  let traceA712 = {
+    x: f1,
+    y: P4,
+    type: 'scatter',
+    marker: {        
+      color: 'rgba(54, 162, 235, 0.6)'
+    },
+    name: 'P4(f)',
+  }; 
+  let traceA713 = {
+    x: f1,
+    y: A5,
+    type: 'scatter',
+    marker: {        
+      color: 'rgba(54, 162, 235, 0.6)'
+    },
+    name: 'A5(f)',
+  }; 
+  let traceA714 = {
+    x: f1,
+    y: F5,
+    type: 'scatter',
+    marker: {        
+      color: 'rgba(54, 162, 235, 0.6)'
+    },
+    name: 'F5(f)',
+  }; 
+  let traceA715 = {
+    x: f1,
+    y: P5,
+    type: 'scatter',
+    marker: {        
+      color: 'rgba(54, 162, 235, 0.6)'
+    },
+    name: 'P5(f)',
+  }; 
+  let traceA716 = {
+    x: f1,
+    y: A6,
+    type: 'scatter',
+    marker: {        
+      color: 'rgba(54, 162, 235, 0.6)'
+    },
+    name: 'A6(f)',
+  }; 
+  let traceA717 = {
+    x: f1,
+    y: F6,
+    type: 'scatter',
+    marker: {        
+      color: 'rgba(54, 162, 235, 0.6)'
+    },
+    name: 'F6(f)',
+  }; 
+  let traceA718 = {
+    x: f1,
+    y: P6,
+    type: 'scatter',
+    marker: {        
+      color: 'rgba(54, 162, 235, 0.6)'
+    },
+    name: 'P6(f)',
+  }; 
+
+  let traceA8x5 = {
+    x: t,
+    y: xt5,
+    type: 'scatter',
+    marker: {        
+      color: 'rgba(255, 99, 132, 0.6)' 
+    },
+    name: 'x(t)',
+  }; 
+  let data8x5 = [traceA8x5]; 
+  let layout8x5 = {
+    title:'Сигнал х(t) с периодом 5'
+  };
+
+  let traceA81 = {
+    x: f1,
+    y: Pt5,
+    type: 'scatter',
+    marker: {        
+      color: 'rgba(54, 162, 235, 0.6)'
+    },
+    name: 'P(f)',
+  }; 
+
+  let traceA8x10 = {
+    x: t,
+    y: xt10,
+    type: 'scatter',
+    marker: {        
+      color: 'rgba(255, 99, 132, 0.6)' 
+    },
+    name: 'x(t)',
+  }; 
+  let data8x10 = [traceA8x10]; 
+  let layout8x10 = {
+    title:'Сигнал х(t) с периодом 10'
+  };
+
+  let traceA82 = {
+    x: f1,
+    y: Pt10,
+    type: 'scatter',
+    marker: {        
+      color: 'rgba(54, 162, 235, 0.6)'
+    },
+    name: 'P(f)',
+  }; 
+
+  let traceA8x20 = {
+    x: t,
+    y: xt20,
+    type: 'scatter',
+    marker: {        
+      color: 'rgba(255, 99, 132, 0.6)' 
+    },
+    name: 'x(t)',
+  }; 
+  let data8x20 = [traceA8x20]; 
+  let layout8x20 = {
+    title:'Сигнал х(t) с периодом 20'
+  };
+
+
+  let traceA83 = {
+    x: f1,
+    y: Pt20,
+    type: 'scatter',
+    marker: {        
+      color: 'rgba(54, 162, 235, 0.6)'
+    },
+    name: 'P(f)',
+  }; 
+
+  let traceA8x50 = {
+    x: t,
+    y: xt50,
+    type: 'scatter',
+    marker: {        
+      color: 'rgba(255, 99, 132, 0.6)' 
+    },
+    name: 'x(t)',
+  }; 
+  let data8x50 = [traceA8x50]; 
+  let layout8x50 = {
+    title:'Сигнал х(t) с периодом 50'
+  };
+  let traceA84 = {
+    x: f1,
+    y: Pt50,
+    type: 'scatter',
+    marker: {        
+      color: 'rgba(54, 162, 235, 0.6)'
+    },
+    name: 'pPf)',
+  }; 
 
 
   let data2 = [traceA, traceA2]; 
   let data3 = [traceA3]; 
   let data4 = [traceA4]; 
   let data5 = [traceA5, traceA6];
+  let data71 = [traceA71];
+  let data72 = [traceA72];
+  let data73 = [traceA73];
+  let data74 = [traceA74];
+  let data75 = [traceA75];
+  let data76 = [traceA76];
+  let data77 = [traceA77];
+  let data78 = [traceA78];
+  let data79 = [traceA79];
+  let data710 = [traceA710];
+  let data711 = [traceA711];
+  let data712 = [traceA712];
+  let data713 = [traceA713];
+  let data714 = [traceA714]; 
+  let data715 = [traceA715];
+  let data716 = [traceA716];
+  let data717 = [traceA717];
+  let data718 = [traceA718];
+  let data81 = [traceA81];
+  let data82 = [traceA82];
+  let data83 = [traceA83];
+  let data84 = [traceA84];
 
   let layout2 = {
     title:'2 задание',
@@ -181,19 +620,137 @@
   let layout5 = {
     title:'5 задание',
   };
+  let layout71 = {
+    title:'Амплитуда сигнала x(t)',
+  };
+  let layout72 = {
+    title:'Фаза сигнала x(t)',
+  };
+  let layout73 = {
+    title:'Энергия сигнала x(t)',
+  };
+  let layout74 = {
+    title:'Амплитуда сигнала x2(t)',
+  };
+  let layout75 = {
+    title:'Фаза сигнала x2(t)',
+  };
+  let layout76 = {
+    title:'Энергия сигнала x2(t)',
+  };
+  let layout77 = {
+    title:'Амплитуда сигнала x3(t)',
+  };
+  let layout78 = {
+    title:'Фаза сигнала x3(t)',
+  };
+  let layout79 = {
+    title:'Энергия сигнала x3(t)',
+  };
+  let layout710 = {
+    title:'Амплитуда сигнала x4(t)',
+  };
+  let layout711 = {
+    title:'Фаза сигнала x4(t)',
+  };
+  let layout712 = {
+    title:'Энергия сигнала x4(t)',
+  };
+  let layout713 = {
+    title:'Амплитуда сигнала x5(t)',
+  };
+  let layout714 = {
+    title:'Фаза сигнала x5(t)',
+  };
+  let layout715 = {
+    title:'Энергия сигнала x5(t)',
+  };
+  let layout716 = {
+    title:'Амплитуда сигнала x6(t)',
+  };
+  let layout717 = {
+    title:'Фаза сигнала x6(t)',
+  };
+  let layout718 = {
+    title:'Энергия сигнала x6(t)',
+  };
+
+  let layout81 = {
+    title:'Энергия сигнала x(t) с 5 периодом',
+  };
+  let layout82 = {
+    title:'Энергия сигнала x(t) с 10 периодом',
+  };
+  let layout83 = {
+    title:'Энергия сигнала x(t) с 20 периодом',
+  };
+  let layout84 = {
+    title:'Энергия сигнала x(t) с 50 периодом',
+  };
     
   let lineDiv1 = document.getElementById('ex1');
   let lineDiv2 = document.getElementById('ex2');
   let lineDiv3 = document.getElementById('ex3');
   let lineDiv4 = document.getElementById('ex4');
   let lineDiv5 = document.getElementById('ex5');
-  let lineDiv6 = document.getElementById('ex6');
+  let lineDiv71 = document.getElementById('ex71');
+  let lineDiv72 = document.getElementById('ex72');
+  let lineDiv73 = document.getElementById('ex73');
+  let lineDiv74 = document.getElementById('ex74');
+  let lineDiv75 = document.getElementById('ex75');
+  let lineDiv76 = document.getElementById('ex76');
+  let lineDiv77 = document.getElementById('ex77');
+  let lineDiv78 = document.getElementById('ex78');
+  let lineDiv79 = document.getElementById('ex79');
+  let lineDiv710 = document.getElementById('ex710');
+  let lineDiv711 = document.getElementById('ex711');
+  let lineDiv712 = document.getElementById('ex712');
+  let lineDiv713 = document.getElementById('ex713');
+  let lineDiv714 = document.getElementById('ex714');
+  let lineDiv715 = document.getElementById('ex715');
+  let lineDiv716 = document.getElementById('ex716');
+  let lineDiv717 = document.getElementById('ex717');
+  let lineDiv718 = document.getElementById('ex718');
+  let lineDiv8x5 = document.getElementById('ex8x5');
+  let lineDiv81 = document.getElementById('ex81');
+  let lineDiv8x10 = document.getElementById('ex8x10');
+  let lineDiv82 = document.getElementById('ex82');
+  let lineDiv8x20 = document.getElementById('ex8x20');
+  let lineDiv83 = document.getElementById('ex83');
+  let lineDiv8x50 = document.getElementById('ex8x50');
+  let lineDiv84 = document.getElementById('ex84');
 
   Plotly.newPlot( lineDiv1, data, layout1 );
   Plotly.newPlot( lineDiv2, data2, layout2 );
   Plotly.newPlot( lineDiv3, data3, layout3 );
   Plotly.newPlot( lineDiv4, data4, layout4 );
   Plotly.newPlot( lineDiv5, data5, layout5 );
+  Plotly.newPlot( lineDiv71, data71, layout71 );
+  Plotly.newPlot( lineDiv72, data72, layout72 );
+  Plotly.newPlot( lineDiv73, data73, layout73 );
+  Plotly.newPlot( lineDiv74, data74, layout74 );
+  Plotly.newPlot( lineDiv75, data75, layout75 );
+  Plotly.newPlot( lineDiv76, data76, layout76 );
+  Plotly.newPlot( lineDiv77, data77, layout77 );
+  Plotly.newPlot( lineDiv78, data78, layout78 );
+  Plotly.newPlot( lineDiv79, data79, layout79 );
+  Plotly.newPlot( lineDiv710, data710, layout710 );
+  Plotly.newPlot( lineDiv711, data711, layout711 );
+  Plotly.newPlot( lineDiv712, data712, layout712 );
+  Plotly.newPlot( lineDiv713, data713, layout713 );
+  Plotly.newPlot( lineDiv714, data714, layout714 );
+  Plotly.newPlot( lineDiv715, data715, layout715 );
+  Plotly.newPlot( lineDiv716, data716, layout716 );
+  Plotly.newPlot( lineDiv717, data717, layout717 );
+  Plotly.newPlot( lineDiv718, data718, layout718 );
+  Plotly.newPlot( lineDiv8x5, data8x5, layout8x5 );
+  Plotly.newPlot( lineDiv81, data81, layout81 );
+  Plotly.newPlot( lineDiv8x10, data8x10, layout8x10 );
+  Plotly.newPlot( lineDiv82, data82, layout82 );
+  Plotly.newPlot( lineDiv8x20, data8x20, layout8x20 );
+  Plotly.newPlot( lineDiv83, data83, layout83 );
+  Plotly.newPlot( lineDiv8x50, data8x50, layout8x50 );
+  Plotly.newPlot( lineDiv84, data84, layout84 );
   </script>
 </body>
 </html>
